@@ -1,0 +1,101 @@
+body {
+  background: url(/static/main/img/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+div#content {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+#id_leaderSex li,#id_category li{
+	display:inline;
+}
+h1 {
+  text-align: center;
+  color: #008000;
+}
+#note {
+  color: blue;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+span.member {
+  color: blue;
+  font-weight: bold;
+}
+span.req {
+  color: red;
+}
+span.label {
+  font-weight: bold;
+}
+p.section {
+  clear: left;
+  border-bottom: 1px solid black;
+  color:red;
+  font-weight: bold;
+  padding-top: 50px;
+}
+p.work {
+  vertical-align: top;
+}
+div.member {
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+th, td {
+  text-align: left;
+  padding-left: 20px;
+}
+.work {
+  margin-bottom: 40px;
+}
+.indent {
+  margin-left: 20px;
+  color: blue;
+  font-weight: bold;
+}
+.indent2 {
+  margin-left: 50px;
+  margin-top: 0;
+  color: brown:
+}
+.darkgreen {
+  color: #04500d;
+}
+.category {
+  margin-bottom: 10px;
+}
+p#formSubmit {
+  text-align: center;
+}
+input#submitButton {
+  font-weight: bold;
+  padding: 8px 20px;
+  background: lightblue;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+input#submitButton:hover {
+  background: #54afcd;
+}
+table#signUpTable {
+  margin: 0 auto;
+}
+table#signUpTable th {
+  text-align: center;
+  background: #54afcd;
+}
+table#signUpTable th, td {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+table#signUpTable tr:hover {
+  background: lightblue;
+}
+textarea {
+  margin-left: 40px;
+}

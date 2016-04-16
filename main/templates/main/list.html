@@ -1,0 +1,48 @@
+{% extends "main/base.html" %}
+{% block content %}
+<table id=signUpTable>
+<tr>
+<th></th><th>作品名稱</th><th>隊長</th><th>學校</th><th>科別</th><th>指導老師</th><th>報名類別</th>
+<th>報名日期</th><th>Youtube網址</th>
+</tr>
+<tr> </tr><tr> </tr>
+{% for SignUp in SignUps %}
+<tr>
+<td>
+  <!-- Delete the entity -->
+  <form method=post action={% url 'main:deletesignUp' SignUp.id %}>
+  {% csrf_token %}
+ <input type=submit value=刪除>
+ </form>
+</td>
+<td><a href={% url 'main:signUp' SignUp.id %}>{{SignUp.projectName}}</a></td>
+<td>{{SignUp.leaderName}}</td>
+<td>{{SignUp.leaderSchool}}</td>
+<td>{{SignUp.leaderDepartment}}</td>
+<td>{{SignUp.advisor1Name}}</td>
+<td>
+{% if SignUp.category == "小論文" %}
+  {{SignUp.category}} <a href=/getFile?entity_id={{SignUp.key.urlsafe}} target=_blank>下載論文</a><br>http://isccyut1.appspot.com/getFile?entity_id={{SignUp.key.urlsafe}}
+{% else %}
+  {{SignUp.category}}
+{% endif %}
+</td>
+<td>{{SignUp.signUpTime}}</td>
+<td><a href={{SignUp.youtubeAddress}}>{{SignUp.youtubeAddress}}</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+{% block script %}
+<script>
+$(document).ready(function() {
+  
+  $(document).on('click', '#deleteButton', function() {
+    if (!confirm('確認刪除？')) {
+      return false;
+    }
+  });
+
+});
+</script>
+{% endblock %}

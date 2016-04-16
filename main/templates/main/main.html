@@ -1,0 +1,153 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<p id=note>註：請詳細填寫真實資料，若資料有誤，將影響您未來參賽的權益。<br>(<span class=req>*</span> 為必填資料)</p>
+
+<form method=post action={% url 'main:addSignUp' %}>
+
+{% csrf_token %}
+<!-- 報名者(隊長)資料 -->
+<p class=section>報名者(隊長)：</p>
+<div  class=member>
+<p><span class=req>*</span><span class=label>姓名：</span> {{form.leaderName}} {{form.leaderName.errors}} </p>
+<p><span class=req>*</span><span class=label>學校：</span> {{form.leaderSchool}} {{form.leaderSchool.errors}} </p>
+<p><span class=req>*</span><span class=label>科別：</span> {{form.leaderDepartment}} {{form.leaderDepartment.errors}} </p>
+<p><span class=req>*</span><span class=label>班級：</span> {{form.leaderClass}} {{form.leaderClass.errors}} </p>
+<p><span class=req>*</span><span class=label>學號：</span> {{form.leaderStudentNo}} {{form.leaderStudentNo.errors}} </p>
+</div>
+
+<div class=member>
+<p><span class=req>*</span><span class=label>性別：</span> {{form.leaderSex}} {{form.leaderSex.errors}} </p>
+<p><span class=req>*</span><span class=label>電話：</span> {{form.leaderPhone}}(例如：0423323000，0912345678) {{form.leaderPhone.errors}} </p>
+<p><span class=req>*</span><span class=label>電郵：</span> {{form.leaderEmail}} {{form.leaderEmail.errors}} </p>
+<p><span class=req>*</span><span class=label>地址：</span> {{form.leaderAddress}} {{form.leaderAddress.errors}} </p>
+</div>
+
+<!-- 指導老師資料 -->
+<p class=section>指導老師：</p>
+<div class=member>
+<span class=member>指導老師1：</span><br>
+<p><span class=req>*</span><span class=label>姓名：</span>{{form.advisor1Name}} {{form.advisor1Name.errors}} </p>
+<p><span class=req>*</span><span class=label>學校：</span>{{form.advisor1School}} {{form.advisor1School.errors}} </p>
+<p><span class=req>*</span><span class=label>科別：</span>{{form.advisor1Department}} {{form.advisor1Department.errors}} </p>
+<p><span class=req>*</span><span class=label>電話：</span>{{form.advisor1Phone}} {{form.advisor1Phone.errors}} </p>
+<p><span class=req>*</span><span class=label>電郵：</span>{{form.advisor1Email}} {{form.advisor1Email.errors}} </p>
+</div>
+
+<div class=member>
+<span class=member>指導老師2：</span><br>
+<p><span class=label>姓名：</span>{{form.advisor2Name}}</p>
+<p><span class=label>學校：</span>{{form.advisor2School}}</p>
+<p><span class=label>科別：</span>{{form.advisor2Department}}</p>
+<p><span class=label>電話：</span>{{form.advisor2Phone}}</p>
+<p><span class=label>電郵：</span>{{form.advisor2Email}}</p>
+</div>
+
+<!-- 組員資料 -->
+<p class=section>組員：</p>
+<div class=member>
+<span class=member>組員1：</span><br>
+<p><span class=label>姓名：</span>{{form.member1Name}}</p>
+<p><span class=label>學校：</span>{{form.member1School}}</p>
+<p><span class=label>科別：</span>{{form.member1Department}}</p>
+<p><span class=label>班級：</span>{{form.member1Class}}</p>
+<p><span class=label>學號：</span>{{form.member1StudentNo}}</p>
+</div>
+
+<div class=member>
+<span class=member>組員2：</span><br>
+<p><span class=label>姓名：</span>{{form.member2Name}}</p>
+<p><span class=label>學校：</span>{{form.member2School}}</p>
+<p><span class=label>科別：</span>{{form.member2Department}}</p>
+<p><span class=label>班級：</span>{{form.member2Class}}</p>
+<p><span class=label>學號：</span>{{form.member2StudentNo}}</p>
+</div>
+
+<div class=member>
+<span class=member>組員3：</span><br>
+<p><span class=label>姓名：</span>{{form.member3Name}}</p>
+<p><span class=label>學校：</span>{{form.member3School}}</p>
+<p><span class=label>科別：</span>{{form.member3Department}}</p>
+<p><span class=label>班級：</span>{{form.member3Class}}</p>
+<p><span class=label>學號：</span>{{form.member3StudentNo}}</p>
+</div>
+
+<div class=member>
+<span class=member>組員4：</span><br>
+<p><span class=label>姓名：</span>{{form.member4Name}}</p>
+<p><span class=label>學校：</span>{{form.member4School}}</p>
+<p><span class=label>科別：</span>{{form.member4Department}}</p>
+<p><span class=label>班級：</span>{{form.member4Class}}</p>
+<p><span class=label>學號：</span>{{form.member4StudentNo}}</p>
+</div>
+
+<!-- 作品資料 -->
+<p class=section>作品：</p>
+<p class=work><span class=req>*</span><span class=label>作品名稱：</span>{{form.projectName}} {{form.projectName.errors}} </p>
+<p class=work><span class=req>*</span><span class=label>報名組別：</span>{{form.category}} {{form.category.errors}} </p>
+<div class=work><span class=req>*</span><span class=label>附件及說明：</span>
+<p class=indent>1. 報名「開放式學校專題」或「網頁設計/動畫」者</p>
+<p class=indent2>(a) 請錄製5分鐘的成果預覽影片，並上傳至YouTube，影片網址：{{form.youtubeAddress}}{{form.youtubeAddress.errors}}</p>
+<p class=indent2>(b) 請說明所使用的軟體與工具：<br>{{form.softwareAndTools}}{{form.softwareAndTools.errors}}</textarea></p>
+<p class=indent2>(c) 請提供100至500字的作品簡介：<br>{{form.projectDescription}}{{form.projectDescription.errors}}</textarea></p>
+<br>
+<p class=indent>2. 報名「小論文」者</p>
+<p class=indent2>請上載論文檔：{{form.article}}{{form.article.errors}}
+<p class="indent2 darkgreen">(PDF格式，小於1MB，請加入大會論文封面)</p>
+</p>
+</div>
+
+
+<!-- 按鈕 -->
+<p id=formSubmit><input id=submitButton type=submit name=insert value=送出></p>
+
+</form>
+{% endblock %}
+
+{% block script %}
+
+<script>
+$(document).ready(function() {
+  
+  $('#selectFile').bind('change', function() {
+    var fileName = $("#sid_article").val();
+    fileName = fileName.toLowerCase();
+    if (!fileName.match(/pdf$/)) {
+      alert('僅接受PDF檔案');
+      $(this).val('');
+    }
+    if (this.files[0].size>=1000000) {
+      alert('檔案不可超過1MB');
+      $(this).val('');
+    }
+  });
+ 
+  $(document).on('click', '#submitButton', function() {
+    if ($('#id_category_2').is(':checked')) {
+      if (!$("#id_article").val()) {
+        alert('請選擇論文檔案');
+        return false;
+      }
+    }
+    else if ($('#id_category_0').is(':checked') || $('#id_category_1').is(':checked')) {
+      if (!$('#id_youtubeAddress').val()) {
+      	alert('請填Youtube影片網址');
+    	  return false;
+      }
+      if (!$('#id_softwareAndTools').val()) {
+        alert('請說明所使用的軟體與工具');
+        return false;
+        }
+      if (!$('#id_projectDescription').val()) {
+        alert('請提供作品簡介');
+        return false;
+      }
+    }
+    if (!confirm('確認送出？')) {
+      return false;
+    }
+  });
+
+});
+</script>
+{% endblock %}

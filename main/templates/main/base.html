@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+{% load staticfiles %}
+<title>朝資盃資訊應用競賽報名表</title>
+<meta charset=utf-8>
+<link rel=stylesheet href={% static 'main/css/main.css' %}>
+</head>
+<body>
+<h1>朝資盃資訊應用競賽報名表</h1><br>
+<div id=content>
+{% block content %}{% endblock %}
+<br>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js></script>
+{% block script %}{% endblock %}
+</div>
+<br><br><br>
+</body>
+</html>
+
+
